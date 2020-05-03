@@ -8,6 +8,8 @@ const forecast = require('./utils/forecast')
 const app = express()
 //nodemon src/app.js -e js,hbs ------- para q nodemon reinicie servidor con esas extensiones y los hbs sean cargados
 
+const port = process.env.PORT || 3000
+
 //seteamos hbs como motor de vista
 app.set('view engine', 'hbs')
 //hace que /public sea el directorio raiz de la app
@@ -85,6 +87,6 @@ app.get('*', (req, res) => {
     })
 })
 
-app.listen(3000, () => {
-    console.log("Servidor en marcha desde el puerto 3000")
+app.listen(port, () => {
+    console.log("Servidor en marcha desde el puerto" + port)
 })
